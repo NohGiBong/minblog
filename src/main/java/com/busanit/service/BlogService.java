@@ -1,7 +1,10 @@
 package com.busanit.service;
 
 import com.busanit.domain.BlogDTO;
+import com.busanit.domain.BlogReplyDTO;
 import com.busanit.entity.Blog;
+import com.busanit.entity.BlogReply;
+import com.busanit.repository.BlogReplyRepository;
 import com.busanit.repository.BlogRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,6 +16,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class BlogService {
     private final BlogRepository blogRepository;
+
 
     public List<BlogDTO> getBlogList() {
         List<Blog> blogList = blogRepository.findAllByOrderByIdxDesc();
@@ -26,11 +30,14 @@ public class BlogService {
 
     public void writeBlog(BlogDTO dto) {
         Blog blog = Blog.toEntity(dto);
-
         blogRepository.save(blog);
     }
+
 
     public void deleteBlog(Long idx) {
         blogRepository.deleteById(idx);
     }
+
+
+
 }
