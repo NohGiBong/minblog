@@ -10,9 +10,9 @@ import java.util.List;
 @Table(name = "blog")
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Blog extends BaseEntity {
 
     @Id
@@ -31,7 +31,8 @@ public class Blog extends BaseEntity {
     public static Blog toEntity(BlogDTO dto) {
         BlogBuilder builder = Blog.builder()
                 .title(dto.getTitle())
-                .content(dto.getContent());
+                .content(dto.getContent())
+                .blogReplyList(dto.getBlogReplyList());
 
         // idx 값이 없을 경우 insert
         // idx 값이 있을 경우 update

@@ -2,15 +2,15 @@ package com.busanit.domain;
 
 import com.busanit.entity.Blog;
 import com.busanit.entity.BlogReply;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class BlogDTO {
 
     private Long idx;
@@ -27,4 +27,6 @@ public class BlogDTO {
                 .blogReplyList(blog.getBlogReplyList())
                 .build();
     }
+
+
 }
